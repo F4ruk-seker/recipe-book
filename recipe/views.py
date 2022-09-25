@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
-from recipe.models import Recipe, recipeTag
+from recipe.models import Recipe
+from recipe.models import recipeTag
 from recipe.models import material
 
 from recipe.forms import recipeForm
+from django.db.models import Q
+
+
 def mainPage(request):
-    Recipe_all = Recipe.objects.all()
+    Recipe_all = Recipe.objects.all().order_by('-created')
 
     recipe_basis = recipeForm(request.POST or None)
     if recipe_basis.is_valid():
@@ -46,6 +50,18 @@ def mainPage(request):
 
     return render(request,'index.html',context={
         'recipe_all':Recipe_all,
+        'last_5_recipe':Recipe_all[:5],
+        'new_recipe_form':recipe_basis
+    })
+def get_recipe_from_slug(request,slug):
+
+    Recipe_all = Recipe.objects.all()
+    recipes = Recipe
+    recipe_basis = recipeForm(request.POST or None)
+
+    return render(request,'index.html',context={
+        'recipe_all':Recipe_all.filter(slug=slug),
+        'last_5_recipe':Recipe_all.order_by('-created')[:5],
         'new_recipe_form':recipe_basis
     })
 

@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from recipe.views import mainPage
+from recipe.views import get_recipe_from_slug
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainPage,name='main_page'),
+    path('recipe/<slug>/', get_recipe_from_slug,name='recipe_page'),
 ]

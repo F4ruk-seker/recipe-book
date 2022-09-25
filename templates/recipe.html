@@ -1,7 +1,9 @@
 
 <div class="card bg-dark text-light mb-3">
     <div class="card-header">
-        <h4 class="card-text opacity-75">{{ recipe.title }} | {% if recipe.getColire.calorie__sum %}{{ recipe.getColire.calorie__sum }}{% endif %} </h4>
+        <a class="text-decoration-none " href="{% url 'recipe_page' slug=recipe.slug  %}">
+            <h4 class="card-text text-decoration-none text-light opacity-75">{{ recipe.title }} | {% if recipe.getColire.calorie__sum %}{{ recipe.getColire.calorie__sum }}{% else %}0{% endif %} <span class="text-secondary">- Colire</span> </h4>
+        </a>
     </div>
 {#    {% if recipe.image %}#}
         <div style="height: 40vh;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>

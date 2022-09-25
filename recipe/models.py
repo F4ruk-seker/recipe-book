@@ -3,6 +3,8 @@ from django.db.models import Q,Sum
 
 from ckeditor.fields import RichTextField
 
+from autoslug import AutoSlugField
+
 from django.contrib.auth.models import User
 # Create your models here.
 class Recipe(models.Model):
@@ -13,6 +15,8 @@ class Recipe(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     recipe_tag = models.ManyToManyField('recipeTag',blank=True)
     image = models.TextField(null=True)
+    # slug = AutoSlugField(populate_from='title', unique_with=('recipe_tag','company'),unique=True, null=False,editable=False)
+    slug = AutoSlugField(populate_from='title', unique=True, null=False,editable=False)
 
     def getTags(self):
         return self.recipe_tag.values()

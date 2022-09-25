@@ -1,27 +1,26 @@
+<!DOCTYPE html>
 <html>
 <head>
     {% include 'basic_head.html' %}
 </head>
 <body class="bg-dark">
-{% include 'navbar.html' %}
-
-<div class="container">
-    <div class="d-flex">
-        <div class="col">
-            {% block content %}{% endblock %}
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="d-flex">
+            <div class="col">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                {% block leftBar %}{% endblock %}
+            </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-3">
-            {% block leftBar %}{% endblock %}
+        <hr>
+        <div class="text-center w-100">
+            <strong class="text-center text-light">
+                pars
+            </strong>
         </div>
     </div>
-    <hr>
-    <div class="text-center w-100">
-        <strong class="text-center">
-            pars
-        </strong>
-    </div>
-</div>
-
-</body>
+    </body>
 </html>
