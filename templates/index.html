@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for recipe in recipe_all %}
+        {% include 'recipe.html' %}
+    {% endfor %}
+{% endblock %}
+{% block leftBar %}{% endblock %}

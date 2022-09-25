@@ -1,0 +1,9 @@
+<div class="card mb-3">
+    {{ recipe.title }}
+    {{ recipe.createBy }}
+    {% for tag in recipe.getTags %}
+        <strong>{{ tag.name }} | TAG</strong>
+    {% endfor %}
+    {{ recipe.how_make | safe }}
+    {{ recipe.created | timesince }}
+</div>
