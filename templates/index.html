@@ -2,8 +2,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <form method="post" class="form-control">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ new_recipe_form | crispy }}
+        <ul class="bg-dark my-2 rounded" id="material_input_area">
+        </ul>
+
+        <button class="btn btn-success link-light" type="button" onclick="createMaterialInputField()" >Mallzeme ekle</button>
+        <div class="d-flex mt-2">
+            <button type="reset" class="btn btn-danger">Delete</button>
+            <div class="w-100"></div>
+            <button class="btn btn-primary">Save</button>
+        </div>
+    </form>
     {% for recipe in recipe_all %}
         {% include 'recipe.html' %}
     {% endfor %}
+
+<script>
+function createMaterialInputField(){
+    var material_input_area = document.getElementById('material_input_area')
+    var li = document.createElement('li')
+    li.classList = ['w-100','d-felx']
+    li.innerHTML = `
+            <input type="text" name="material_name" placeholder="material">
+            <input type="number" name="material_quantity" placeholder="gram">
+            <input type="number" name="material_calorie" placeholder="calorie">
+    `;
+
+    material_input_area.appendChild(li);
+}
+</script>
 {% endblock %}
 {% block leftBar %}{% endblock %}
