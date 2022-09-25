@@ -1,21 +1,24 @@
 
-    <meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Documentation and examples for Bootstrap’s powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.">
-<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-<meta name="generator" content="Hugo 0.101.0">
+<meta name="description" content="fit recipes written for gym">
+<meta name="author" content="f4ruk pars">
+<meta name="generator" content="pars 0.01.0">
 
 <meta name="docsearch:language" content="en">
 <meta name="docsearch:version" content="5.2">
-
-<title>Navbar · Bootstrap v5.2</title>
-
+{% if request.user %}
+    <title>{{ request.user.username }} | Gym Page</title>
+{% else %}
+    <title>Gym | Fit Recipes </title>
+{% endif %}
 <link rel="canonical" href="https://getbootstrap.com/docs/5.2/components/navbar/"><link rel="preconnect" href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin="">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 {% load static %}
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -26,6 +29,7 @@
 <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9">
 
+{% comment  %}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@getbootstrap">
 <meta name="twitter:creator" content="@getbootstrap">
@@ -50,6 +54,7 @@
   ga('set', 'anonymizeIp', true);
   ga('send', 'pageview');
 </script>
+{% endcomment %}
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
 
 

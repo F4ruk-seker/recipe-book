@@ -1,9 +1,27 @@
-<div class="card mb-3">
-    {{ recipe.title }}
-    {{ recipe.createBy }}
-    {% for tag in recipe.getTags %}
-        <strong>{{ tag.name }} | TAG</strong>
-    {% endfor %}
-    {{ recipe.how_make | safe }}
-    {{ recipe.created | timesince }}
+
+<div class="card bg-dark text-light mb-3">
+    <div class="card-header">
+        <h4 class="card-text opacity-75">{{ recipe.title }} | {% if recipe.getColire.calorie__sum %}{{ recipe.getColire.calorie__sum }}{% endif %} </h4>
+    </div>
+{#    {% if recipe.image %}#}
+        <div style="height: 40vh;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>
+{#    {% endif %}#}
+    <div class="card-body more-read pt-0" id="recipe_detail{{ recipe.id }}" style="height: 25px;overflow: hidden">
+        {{ recipe.how_make | safe }}
+    </div>
+    <div>
+        {% if recipe.how_make|length > 150 %}
+            <input type="checkbox" class="btn btn-dark link-primary" id="read_more{{ recipe.id }}" style="display: none" onclick="if (document.getElementById('read_more{{ recipe.id }}').checked){document.getElementById('recipe_detail{{ recipe.id }}').style='height: 20vh;overflow-y: scroll'}else{var read_detail = document.getElementById('recipe_detail{{ recipe.id }}');read_detail.scrollTop=0;read_detail.style='height: 25px;overflow: hidden'} ">
+            <label for="read_more{{ recipe.id }}" class="btn btn-dark link-secondary">Daha Fazlasını oku</label>
+        {% endif %}
+
+    </div>
+    <div class="card-footer">
+        <div class="d-flex">
+            {% for tag in recipe.getTags %}
+                <a class="btn btn-dark border-secondary me-2 border-bottom opacity-75">{{ tag.name }}</a>
+            {% endfor %}
+        </div>
+        <p class="p-0 m-0 pt-3">createdBy. <strong class="link-light"> {{ recipe.createBy }} </strong> | <span>{{ recipe.created | timesince }} Later</span></p>
+    </div>
 </div>

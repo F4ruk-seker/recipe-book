@@ -9,7 +9,7 @@ class Recipe(models.Model):
     title = models.TextField(max_length=150,default=None)
     createBy = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     how_make = RichTextField(default=None)
-    materialList = models.ManyToManyField('material',blank=True,null=True)
+    materialList = models.ManyToManyField('material',blank=True)
     created = models.DateTimeField(auto_now_add=True)
     recipe_tag = models.ManyToManyField('recipeTag',blank=True)
     image = models.TextField(null=True)
