@@ -53,10 +53,20 @@ def mainPage(request):
         'last_5_recipe':Recipe_all[:5],
         'new_recipe_form':recipe_basis
     })
+
+def get_recipe_from_tag(request,tag_slug):
+    Recipe_all = Recipe.objects.all()
+    recipe_basis = recipeForm(request.POST or None)
+
+    return render(request, 'index.html', context={
+        'recipe_all': Recipe_all.filter(Q(recipe_tag__slug=tag_slug)),
+        'last_5_recipe': Recipe_all.order_by('-created')[:5],
+        'new_recipe_form': recipe_basis
+    })
 def get_recipe_from_slug(request,slug):
 
     Recipe_all = Recipe.objects.all()
-    recipes = Recipe
+
     recipe_basis = recipeForm(request.POST or None)
 
     return render(request,'index.html',context={

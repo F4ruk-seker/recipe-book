@@ -21,7 +21,7 @@
     <div class="card-footer">
         <div class="d-flex">
             {% for tag in recipe.getTags %}
-                <a class="btn btn-dark border-secondary me-2 border-bottom opacity-75">{{ tag.name }}</a>
+                <a class="btn btn-dark border-secondary me-2 border-bottom opacity-75" href="{% url 'recipe_tag' tag_slug=tag.slug %}">{{ tag.name }}</a>
             {% endfor %}
         </div>
         <p class="p-0 m-0 pt-3">createdBy. <strong class="link-light"> {{ recipe.createBy }} </strong> | <span>{{ recipe.created | timesince }} Later</span></p>

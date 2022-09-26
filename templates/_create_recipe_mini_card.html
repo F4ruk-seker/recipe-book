@@ -3,13 +3,13 @@
         <h2 class="h2 link-light border-secondary border-bottom">New Recipes</h2>
     {% endif %}
     {% for recipe in last_5_recipe %}
-        <a href="#" class="list-group-item list-group-item-action bg-dark d-flex mb-1">
-            <div class="rounded-circle" style="height: 44px;width:44px;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>
-            <div class="d-flex link-light ms-2 my-auto w-100">
-                <strong class="w-100">{{ recipe.title }}</strong>
-                <br>
-                <p class="p-0 m-0 w-100">{{ recipe.created | timesince }}</p>
+        <a href="{% url 'recipe_page' slug=recipe.slug %}" class="list-group-item list-group-item-action bg-dark d-flex mb-1">
+            <div class="d-block rounded-circle" style="height: 44px;width:44px;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>
+            <div class="d-block ms-2 my-auto">
+                <strong class="link-light text-decoration-none">{{ recipe.title }}</strong>
+                <p class="p-0 m-0 link-secondary">{{ recipe.created | timesince }}</p>
             </div>
+
         </a>
     {% empty %}
         <a href="#" class="list-group-item list-group-item-action disabled">

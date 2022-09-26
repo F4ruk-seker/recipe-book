@@ -29,6 +29,8 @@ class Recipe(models.Model):
 class recipeTag(models.Model):
     name = models.TextField()
     icon = models.TextField(null=True)
+    slug = AutoSlugField(populate_from='name', unique=True, null=False,editable=False)
+
     def __str__(self):
         return str(self.name)
 
