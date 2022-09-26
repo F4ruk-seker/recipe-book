@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'recipe',
 #   nice form
     'crispy_forms',
+#   api
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -134,5 +136,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 django_heroku.settings(locals())

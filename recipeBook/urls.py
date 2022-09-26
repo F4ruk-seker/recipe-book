@@ -18,8 +18,12 @@ from django.urls import path
 from recipe.views import mainPage
 from recipe.views import get_recipe_from_slug
 
+from rest_framework_simplejwt import views as jwt_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainPage,name='main_page'),
     path('recipe/<slug>/', get_recipe_from_slug,name='recipe_page'),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
