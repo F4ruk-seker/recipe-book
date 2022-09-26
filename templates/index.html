@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if request.user.is_superuser %}
+    {% if request.user.is_staff %}
         {% include '_recipe_form.html' %}
         {% load static %}
         <script src="{% static '/js/recipe_form_script.js' %}"></script>
