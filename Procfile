@@ -1,2 +1,2 @@
 release: python3 manage.py migrate
-web: gunicorn recipe.wsgi --log-file  -
+web: gunicorn recipe.wsgi:application --log-file  -
