@@ -9,6 +9,7 @@ django-ckeditor = "*"
 django-crispy-forms = "*"
 django-autoslug = "*"
 django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
