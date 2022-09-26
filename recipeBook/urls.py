@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
 from recipe.views import mainPage
 from recipe.views import get_recipe_from_slug
 
@@ -26,4 +28,5 @@ urlpatterns = [
     path('recipe/<slug>/', get_recipe_from_slug,name='recipe_page'),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/recipes/', include('recipe.api.urls')),
 ]
