@@ -7,7 +7,7 @@
 
 <meta name="docsearch:language" content="en">
 <meta name="docsearch:version" content="5.2">
-{% if request.user %}
+{% if request.user.is_authenticated %}
     <title>{{ request.user.username }} | Gym Page</title>
 {% else %}
     <title>Gym | Fit Recipes </title>
