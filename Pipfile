@@ -10,6 +10,7 @@ django-crispy-forms = "*"
 django-autoslug = "*"
 django-heroku = "*"
 gunicorn = "*"
+django-environ = "*"
 
 [dev-packages]
 

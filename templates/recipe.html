@@ -6,7 +6,7 @@
         </a>
     </div>
 {#    {% if recipe.image %}#}
-        <div style="height: 40vh;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>
+        <div class="img-fluid card-img" style="height: 40vh;filter: brightness(0.6);background: url('{{ recipe.image }}') no-repeat center;background-size: cover"></div>
 {#    {% endif %}#}
     <div class="card-body more-read pt-0" id="recipe_detail{{ recipe.id }}" style="height: 25px;overflow: hidden">
         {{ recipe.how_make | safe }}
