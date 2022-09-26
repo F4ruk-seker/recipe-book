@@ -10,7 +10,7 @@ from django.db.models import Q
 
 
 def mainPage(request):
-    Recipe_all = Recipe.objects.all().order_by('-created')
+    Recipe_all = Recipe.objects.all()
 
     recipe_basis = recipeForm(request.POST or None)
     if recipe_basis.is_valid():
@@ -49,8 +49,8 @@ def mainPage(request):
         return redirect('main_page')
 
     return render(request,'index.html',context={
-        'recipe_all':Recipe_all,
-        'last_5_recipe':Recipe_all[:5],
+        'recipe_all':Recipe_all.order_by('-created'),
+        'last_5_recipe':Recipe_all.order_by('-created')[:5],
         'new_recipe_form':recipe_basis
     })
 
