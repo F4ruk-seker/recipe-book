@@ -1,0 +1,23 @@
+#libs
+venv/
+.idea/
+#crypo
+__pycache__/
+#api key or x
+#.env
+
+#static and medias
+#static
+#avatar
+media
+graduate.rar
+graduate.zip
+backup
+# git init
+# git config user.name "F4ruk-seker"
+# git config user.email ""
+# git add -A
+# git status
+# git commit -m ""
+# git remote add origin
+# git push -u origin main
