@@ -1,13 +1,12 @@
 <!--nav-->
 <nav class="navbar  navbar-expand navbar-dark bg-dark position-fixed border-secondary border-bottom w-100 bg-light" style="z-index: 10;">
-    <div class="container">
-      <a class="navbar-brand nav-link" href="{% url 'main_page' %}">Fit Recipes</a>
-      <a class="nav-link" href="{% url 'main_page' %}">DevLog</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-<div class="mx-auto order-0 col-sm-0 col-5">
-    <input class="form-control " type="search" placeholder="tarifler,mallzemeler" aria-label="Search" id="search_field" onchange="search_tracker('search_field')" onkeyup="console.log(document.getElementById('search_field').value);">
-</div>
+<div class="container">
+    <a class="navbar-brand nav-link" href="{% url 'main_page' %}">Fit Recipes</a>
+    <a class="nav-link" href="{% url 'main_page' %}">DevLog</a>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="mx-auto order-0 col-sm-0 col-5">
+        <input class="form-control " type="search" placeholder="tarifler,mallzemeler" aria-label="Search" id="search_field" onchange="search_tracker('search_field')" onkeyup="console.log(document.getElementById('search_field').value);">
+    </div>
 <div class="navbar-right ">
 {% if request.user.is_authenticated %}
    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -36,9 +35,9 @@
 {% else %}
 <a class="btn btn-dark link-light" href="{% url 'admin:login' %}">login</a>
 {% endif %}
-        </div>
-      </div>
-    </div>
+</div>
+</div>
+</div>
 </nav>
 <!--nav END -->
 <div style="height: 10vh"></div>

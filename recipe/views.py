@@ -42,8 +42,8 @@ def mainPage(request):
 
                 _material = material.objects.create(
                     name=material_names[material_input_index],
-                    calorie=int(material_quantitys[material_input_index] or 0),
-                    quantity=int(material_calorie[material_input_index] or 0))
+                    calorie=int(material_calorie[material_input_index] or 0),
+                    quantity=int(material_quantitys[material_input_index] or 0))
 
                 recipe_basis_data.materialList.add(_material)
         return redirect('main_page')
